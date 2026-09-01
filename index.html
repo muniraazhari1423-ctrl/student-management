@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 25px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="text" id="id" placeholder="Student ID">
+    <input type="text" id="department" placeholder="Department">
+
+    <button onclick="addStudent()">Add Student</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentList"></tbody>
+    </table>
+
+</div>
+
+<script>
+function addStudent() {
+
+    let name = document.getElementById("name").value;
+    let id = document.getElementById("id").value;
+    let department = document.getElementById("department").value;
+
+    if (name === "" || id === "" || department === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let table = document.getElementById("studentList");
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = name;
+    row.insertCell(1).innerHTML = id;
+    row.insertCell(2).innerHTML = department;
+
+    document.getElementById("name").value = "";
+    document.getElementById("id").value = "";
+    document.getElementById("department").value = "";
+}
+</script>
+
+</body>
+</html> 
